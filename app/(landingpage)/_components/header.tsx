@@ -21,7 +21,7 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-x-2">
           <ClerkLoading>
-            <Loader className="size-4 text-muted-foreground animate-spin" />
+            <Loader className="size-6 text-muted-foreground animate-spin" />
           </ClerkLoading>
           <ClerkLoaded>
             <SignedIn>

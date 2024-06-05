@@ -16,7 +16,7 @@ export default function Header() {
             <Navigation />
           </div>
           <ClerkLoading>
-            <Loader className="size-4 text-muted-foreground animate-spin" />
+            <Loader className="size-6 text-muted-foreground animate-spin" />
           </ClerkLoading>
           <ClerkLoaded>
             <div className="flex items-center gap-x-3">
