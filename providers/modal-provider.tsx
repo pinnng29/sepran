@@ -3,6 +3,7 @@
 import { useMountedState } from "react-use"
 
 import NewAccountModal from "@/features/accounts/components/new-account-modal";
+import EditAccountModal from "@/features/accounts/components/edit-account-modal";
 
 export default function ModalProvider() {
   const isMounted = useMountedState();
@@ -14,6 +15,7 @@ export default function ModalProvider() {
   return (
     <>
       <NewAccountModal />
+      <EditAccountModal />
     </>
   )
 }
