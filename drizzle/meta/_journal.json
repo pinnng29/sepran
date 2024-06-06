@@ -8,6 +8,13 @@
       "when": 1717535095398,
       "tag": "0000_complete_archangel",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1717672472653,
+      "tag": "0001_purple_epoch",
+      "breakpoints": true
     }
   ]
 }
