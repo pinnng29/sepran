@@ -9,6 +9,7 @@ import NewCategoryModal from "@/features/categories/components/new-category-moda
 import EditCategoryModal from "@/features/categories/components/edit-category-modal";
 
 import NewTransactionModal from "@/features/transactions/components/new-transaction-modal";
+import EditTransactionModal from "@/features/transactions/components/edit-transaction-modal";
 
 export default function ModalProvider() {
   const isMounted = useMountedState();
@@ -26,6 +27,7 @@ export default function ModalProvider() {
       <EditCategoryModal />
 
       <NewTransactionModal />
+      <EditTransactionModal />
     </>
   );
 }

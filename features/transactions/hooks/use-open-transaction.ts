@@ -7,7 +7,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const useOpenAccount = create<Props>((set) => ({
+export const useOpenTransaction = create<Props>((set) => ({
   id: undefined,
   isOpen: false,
   onOpen: (id: string) => set({ isOpen: true, id }),
