@@ -41,7 +41,7 @@ export default function Select({
       options={options}
       onCreateOption={onCreate}
       isDisabled={disabled}
-      className="text-sm h-10"
+      className="text-sm h-10 w-[180px]"
       styles={{
         control: (base) => ({
           ...base,
