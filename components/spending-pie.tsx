@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { AreaChart, BarChart3, FileSearch, LineChart, Loader2 } from "lucide-react";
+import { FileSearch, Loader2, PieChart, Radar, Target } from "lucide-react";
 
-import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
@@ -11,22 +10,22 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import AreaVariant from "@/components/area-variant";
-import BarVariant from "@/components/bar-variant";
-import LineVariant from "@/components/line-variant";
+import PieVariant from "@/components/pie-variant";
+import RadarVariant from "@/components/radar-variant";
+import RadialVariant from "@/components/radial-variant";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type Props = {
   data?: {
-    date: string;
-    income: number;
-    expenses: number;
+    name: string;
+    value: number;
   }[];
 };
 
-export default function Chart({ data = [] }: Props) {
-  type ChartType = "area" | "bar" | "line";
+export default function SpendingPie({ data = [] }: Props) {
+  type ChartType = "pie" | "radar" | "radial";
 
-  const [chartType, setChartType] = useState<ChartType>("area");
+  const [chartType, setChartType] = useState<ChartType>("pie");
 
   const onTypeChange = (type: ChartType) => {
     // TODO: Add Paywall
@@ -37,7 +36,7 @@ export default function Chart({ data = [] }: Props) {
   return (
     <Card className="border drop-shadow-sm">
       <CardHeader className="flex justify-between space-y-2 lg:space-y-0 lg:flex-row lg:items-center">
-        <CardTitle className="text-xl line-clamp-1">Transactions</CardTitle>
+        <CardTitle className="text-xl line-clamp-1">Categories</CardTitle>
         <Select
           defaultValue={chartType}
           onValueChange={onTypeChange}
@@ -46,22 +45,22 @@ export default function Chart({ data = [] }: Props) {
             <SelectValue placeholder="Select chart type" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="area">
+            <SelectItem value="pie">
               <div className="flex items-center">
-                <AreaChart className="size-4 mr-2 shrink-0" />
-                <p className="line-clamp-1">Area chart</p>
+                <PieChart className="size-4 mr-2 shrink-0" />
+                <p className="line-clamp-1">Pie chart</p>
               </div>
             </SelectItem>
-            <SelectItem value="line">
+            <SelectItem value="radar">
               <div className="flex items-center">
-                <LineChart className="size-4 mr-2 shrink-0" />
-                <p className="line-clamp-1">Line chart</p>
+                <Radar className="size-4 mr-2 shrink-0" />
+                <p className="line-clamp-1">Radar chart</p>
               </div>
             </SelectItem>
-            <SelectItem value="bar">
+            <SelectItem value="radial">
               <div className="flex items-center">
-                <BarChart3 className="size-4 mr-2 shrink-0" />
-                <p className="line-clamp-1">Bar chart</p>
+                <Target className="size-4 mr-2 shrink-0" />
+                <p className="line-clamp-1">Radial chart</p>
               </div>
             </SelectItem>
           </SelectContent>
@@ -77,9 +76,9 @@ export default function Chart({ data = [] }: Props) {
           </div>
         ) : (
           <>
-            {chartType === "area" && <AreaVariant data={data} />}
-            {chartType === "line" && <LineVariant data={data} />}
-            {chartType === "bar" && <BarVariant data={data} />}
+            {chartType === "pie" && <PieVariant data={data} />}
+            {chartType === "radar" && <RadarVariant data={data} />}
+            {chartType === "radial" && <RadialVariant data={data} />}
           </>
         )}
       </CardContent>
@@ -87,11 +86,12 @@ export default function Chart({ data = [] }: Props) {
   );
 }
 
-export const ChartLoading = () => {
+
+export const SpendingPieLoading = () => {
   return (
     <Card className="border drop-shadow-sm">
       <CardHeader className="flex justify-between space-y-2 lg:space-y-0 lg:flex-row lg:items-center">
-        <Skeleton className="h-8 w-48" />
+        <Skeleton className="h-8 w-48"/>
         <Skeleton className="h-8 lg:w-[120px] w-full" />
       </CardHeader>
       <CardContent>
@@ -100,5 +100,5 @@ export const ChartLoading = () => {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
