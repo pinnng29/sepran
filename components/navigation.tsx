@@ -29,10 +29,6 @@ const routers = [
     label: "Categories",
     href: "/categories",
   },
-  {
-    label: "Settings",
-    href: "/settings",
-  },
 ];
 
 export default function Navigation() {
