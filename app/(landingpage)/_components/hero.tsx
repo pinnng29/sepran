@@ -19,11 +19,11 @@ export default function Hero() {
           A simple way to Record
           <ChevronRight className="h-5 w-5" />
         </Badge>
-        <h1 className="text-center mx-auto text-3xl sm:text-5xl md:text-6xl font-bold font-serif mt-6 capitalize ">
+        <h1 className="mx-auto text-center  text-3xl sm:text-5xl md:text-6xl font-bold font-serif mt-6 capitalize ">
           Manage your personal finances with ease and Achieve Greater Financial
           Stability
         </h1>
-        <p className="mt-8 mb-6 mx-auto text-center sm:px-0 md:text-lg lg:text-md text-muted-foreground">
+        <p className="container mt-8 mb-6 mx-auto text-center sm:px-0 md:text-lg lg:text-md text-muted-foreground">
           Sepran will record your daily incomes, and expenses in a simple way
         </p>
         {user && (
