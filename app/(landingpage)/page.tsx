@@ -1,9 +1,10 @@
+import Hero from "./_components/hero";
 
 
 export default function LandingPage() {
   return (
-    <div>
-      Landing Page
-    </div>
+    <>
+      <Hero />
+    </>
   )
 }
