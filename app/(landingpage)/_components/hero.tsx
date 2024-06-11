@@ -1,19 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, Github } from "lucide-react";
+
+import { useUser } from "@clerk/nextjs";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useUser } from "@clerk/nextjs";
-import Image from "next/image";
 
 export default function Hero() {
   const { user, isLoaded } = useUser();
 
   return (
     <section className="py-20">
-      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center">
+      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center delay-500 duration-1000 animate-in fade-in slide-in-from-top-6">
         <Badge className="flex items-center gap-2 text-md font-semibold text-zinc-50">
           A simple way to Record
           <ChevronRight className="h-5 w-5" />
