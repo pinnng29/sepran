@@ -1,7 +1,11 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { featuresItem } from "@/lib/site";
-import { index } from "drizzle-orm/mysql-core";
+
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+} from "@/components/ui/card";
 
 export default function Features() {
   return (
@@ -14,7 +18,7 @@ export default function Features() {
           Save time, save money, look more professional
         </h2>
       </div>
-      <div className="container mx-auto mt-8 gap-4 p-4 grid sm:grid-cols-2 lg:grid-cols-2">
+      <div className="container mx-auto mt-4 gap-4 p-4 grid sm:grid-cols-2 lg:grid-cols-2">
         {featuresItem.map((feature, index) => (
           <Card
             key={index}
@@ -23,9 +27,7 @@ export default function Features() {
             <CardHeader className="text-xl font-bold">
               {feature.title}
             </CardHeader>
-            <CardContent className="text-sm">
-              {feature.description}
-            </CardContent>
+            <CardContent className="text-sm">{feature.description}</CardContent>
           </Card>
         ))}
       </div>
