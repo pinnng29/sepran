@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 
 export default function Cta() {
   return (
-    <section className="container mx-auto max-w-xl py-28">
-      <div className="flex flex-col items-center justify-center rounded-md border border-border p-10 shadow-xl">
-        <h2 className="text-3xl font-serif font-semibold sm:text-4xl">
+    <section className="mx-auto max-w-xl py-28">
+      <div className="flex flex-col text-center items-center justify-center rounded-md border border-border p-10 shadow-xl">
+        <h1 className="text-2xl font-serif font-semibold sm:text-4xl">
           Proudly Open Source
-        </h2>
+        </h1>
         <p className="mt-4 text-sm text-muted-foreground">
           Next Sepran is open source and available on Github.
         </p>
