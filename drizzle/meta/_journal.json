@@ -22,6 +22,20 @@
       "when": 1717703893383,
       "tag": "0002_yummy_sage",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1721216905595,
+      "tag": "0003_known_tenebrous",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1721217751802,
+      "tag": "0004_far_madelyne_pryor",
+      "breakpoints": true
     }
   ]
 }

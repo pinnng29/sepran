@@ -48,6 +48,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
     "react-hook-form": "^7.51.5",
+    "react-plaid-link": "^3.5.2",
     "react-select": "^5.8.0",
     "react-use": "^17.5.0",
     "recharts": "^2.12.7",

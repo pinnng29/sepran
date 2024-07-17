@@ -7,6 +7,7 @@ export const accounts = pgTable("accounts", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   userId: text("user_id").notNull(),
+  plaidId: text("plaid_id"),
 });
 
 export const accountsRelations = relations(accounts, ({ many }) => ({
@@ -19,6 +20,7 @@ export const categories = pgTable("categories", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   userId: text("user_id").notNull(),
+  plaidId: text("plaid_id"),
 });
 
 export const categoriesRelations = relations(categories, ({ many }) => ({
@@ -56,4 +58,10 @@ export const transactionsRelations = relations(transactions, ({ one }) => ({
 
 export const insertTransactionSchema = createInsertSchema(transactions, {
   date: z.coerce.date(),
+});
+
+export const connectedBanks = pgTable("connected_banks", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull(),
+  accessToken: text("access_token").notNull(),
 });
