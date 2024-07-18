@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import {
   Dialog,
   DialogContent,
@@ -26,19 +24,19 @@ export default function SubscriptionModal() {
     >
       <DialogContent>
         <DialogHeader className="flex items-center space-y-4">
-          <Image
-            src={"/logo.svg"}
-            alt="Logo"
-            height={36}
-            width={36}
-          />
+          <h1 className="text-2xl font-bold">
+            Next
+            <span className="ml-1 text-background rounded-md bg-gradient-to-br from-violet-400 to-cyan-500 p-1">
+              Sepran
+            </span>
+          </h1>
           <DialogTitle>Upgrade to a paid plan</DialogTitle>
           <DialogDescription>
             Upgrade to a paid plan to unlock more features
           </DialogDescription>
         </DialogHeader>
         <Separator />
-        <ul className="space-6-2">
+        <ul className="space-y-2">
           <li className="flex items-center">
             <CheckCircle2 className="size-5 mr-2 fill-blue-500 text-white" />
             <p className="text-sm text-muted-foreground">
@@ -60,7 +58,7 @@ export default function SubscriptionModal() {
           <Button
             onClick={() => checkout.mutate()}
             disabled={checkout.isPending}
-            className="w-full"
+            className="w-full text-white"
           >
             Upgrade
           </Button>
