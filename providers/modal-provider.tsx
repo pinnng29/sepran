@@ -11,6 +11,8 @@ import EditCategoryModal from "@/features/categories/components/edit-category-mo
 import NewTransactionModal from "@/features/transactions/components/new-transaction-modal";
 import EditTransactionModal from "@/features/transactions/components/edit-transaction-modal";
 
+import SubscriptionModal from "@/features/subscriptions/components/subscription-modal";
+
 export default function ModalProvider() {
   const isMounted = useMountedState();
 
@@ -28,6 +30,8 @@ export default function ModalProvider() {
 
       <NewTransactionModal />
       <EditTransactionModal />
+
+      <SubscriptionModal />
     </>
   );
 }

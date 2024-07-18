@@ -15,6 +15,8 @@ import RadarVariant from "@/components/radar-variant";
 import RadialVariant from "@/components/radial-variant";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import { usePaywall } from "@/features/subscriptions/hooks/use-paywall";
+
 type Props = {
   data?: {
     name: string;
@@ -23,12 +25,14 @@ type Props = {
 };
 
 export default function SpendingPie({ data = [] }: Props) {
-  type ChartType = "pie" | "radar" | "radial";
+  const [chartType, setChartType] = useState("pie");
+  const { shouldBlock, triggerPaywall } = usePaywall();
 
-  const [chartType, setChartType] = useState<ChartType>("pie");
-
-  const onTypeChange = (type: ChartType) => {
-    // TODO: Add Paywall
+  const onTypeChange = (type: string) => {
+    if (type !== "pie" && shouldBlock) {
+      triggerPaywall();
+      return;
+    }
 
     setChartType(type);
   };
@@ -86,12 +90,11 @@ export default function SpendingPie({ data = [] }: Props) {
   );
 }
 
-
 export const SpendingPieLoading = () => {
   return (
     <Card className="border drop-shadow-sm">
       <CardHeader className="flex justify-between space-y-2 lg:space-y-0 lg:flex-row lg:items-center">
-        <Skeleton className="h-8 w-48"/>
+        <Skeleton className="h-8 w-48" />
         <Skeleton className="h-8 lg:w-[120px] w-full" />
       </CardHeader>
       <CardContent>
@@ -101,4 +104,4 @@ export const SpendingPieLoading = () => {
       </CardContent>
     </Card>
   );
-}
+};

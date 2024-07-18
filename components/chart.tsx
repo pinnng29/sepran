@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { AreaChart, BarChart3, FileSearch, LineChart, Loader2 } from "lucide-react";
+import {
+  AreaChart,
+  BarChart3,
+  FileSearch,
+  LineChart,
+  Loader2,
+} from "lucide-react";
+
+import { usePaywall } from "@/features/subscriptions/hooks/use-paywall";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,12 +32,14 @@ type Props = {
 };
 
 export default function Chart({ data = [] }: Props) {
-  type ChartType = "area" | "bar" | "line";
+  const { shouldBlock, triggerPaywall } = usePaywall();
+  const [chartType, setChartType] = useState("area");
 
-  const [chartType, setChartType] = useState<ChartType>("area");
-
-  const onTypeChange = (type: ChartType) => {
-    // TODO: Add Paywall
+  const onTypeChange = (type: string) => {
+    if (type !== "area" && shouldBlock) {
+      triggerPaywall();
+      return;
+    }
 
     setChartType(type);
   };
@@ -100,5 +110,5 @@ export const ChartLoading = () => {
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
